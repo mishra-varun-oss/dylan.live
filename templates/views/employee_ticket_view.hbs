@@ -3,14 +3,14 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>Dylan.L!ve</title>
+		<title>Ticket</title>
 		<link rel="stylesheet" href="/css/specialist_ticket_view.css">
 	</head>
 
 	<body>
 		<p>Logged in as {{role}}: {{ username }}</p>
-		<a href="/specialist/logout">Logout</a>
-		<a href="/specialist">Back</a>
+		<a href="/employee/logout">Logout</a>
+		<a href="/employee">Back</a>
 		
 		<p>IT Ticket Details</p>
 		<input type="hidden" value="{{{r.status}}}" id="status_data">
@@ -18,7 +18,7 @@
 		<p id="message"></p >
 		<ul>
 			<li><strong>Status:</strong>
-				<select id="status" onchange="update_data(event, this)">
+				<select id="status" disabled>
 					<option value="OPEN">OPEN</option>
 					<option value="PENDING">PENDING</option>
 					<option value="IN PROGRESS">IN PROGRESS</option>

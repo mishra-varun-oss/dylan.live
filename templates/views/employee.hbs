@@ -5,7 +5,10 @@
 		<title>Employee</title>
 	</head>
 	<body>
-		
+		<p>Logged in as {{ role }}: {{ username }}</p>
+		<input type="hidden" id="role" value="{{{role}}}">
+		<input type="hidden" value="{{{username}}}" id="username">
+		<a href="/employee/logout">Logout</a>
 		<table class="table">
 		<thead>
 			<tr>
@@ -24,7 +27,7 @@
 				<td>{{ this.category }}</td>
 				<td>{{ this.priority }}</td>
 				<td>
-					<a href="/specialist/view/{{{this.id}}}">Details</a>	
+					<a href="/employee/ticket/{{{this.id}}}">Details</a>	
 				</td>
 				<td>
 					<a href="#" onclick="open_chat({{{this.id}}})">Chat</a>	
@@ -33,5 +36,6 @@
 			{{/each}}
 		</tbody>
 		</table>
+		<script src="/js/open_chat.js"></script>
 	</body>
 </html>

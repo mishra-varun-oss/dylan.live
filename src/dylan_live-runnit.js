@@ -73,6 +73,7 @@ wss.on('connection', socket => {
 								
 				wss.clients.forEach((client) => {
 					if (client.id == chat_id) {
+						console.log(client.id);
 						let obj = {
 							type: 'message',
 							sender: sender,

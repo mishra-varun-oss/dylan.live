@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 		if (err) throw err;
 		res.render('specialist_view', {
 			username: req.session.username,
+			role: req.session.role,
 			result: results
 		})
 	})

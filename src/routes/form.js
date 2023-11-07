@@ -20,12 +20,18 @@ const upload = multer({ storage: storage });
 
 router.use(login_utils.employee_check);
 
+router.get('/logout', (req, res) => {
+	req.session.destroy();
+	res.redirect('/?logout=true');
+})
+
 router.get('/', (req, res) => {
 	let q = `SELECT *, DATE_FORMAT(dt, '%m-%d-%Y %H:%i:%s') AS nice_dt FROM tickets WHERE employee = '${req.session.username}'`;
 	db.query(q, (err, results) => {
 		if (err) throw err;
 		res.render('employee', { 
 			username: req.session.username,
+			role: req.session.role,
 			result: results
 		});
 	})
@@ -41,6 +47,20 @@ router.post('/', upload.array('file_data', 10), (req, res) => {
 			if (err) throw err;
 
 			res.send({ status: true });
+		})
+	})
+})
+
+router.get('/ticket/:id', (req, res) => {
+	let id = req.params.id;
+	let q = `SELECT *, DATE_FORMAT(dt, '%m-%d-%Y %H:%m:%s') AS nice_dt FROM tickets WHERE id = ${id}`;
+	db.query(q, (err, results) => {
+		if (err) throw err;
+		let r = results[0];
+		res.render('employee_ticket_view', {
+			username: req.session.username,
+			role: req.session.role,
+			r: r
 		})
 	})
 })

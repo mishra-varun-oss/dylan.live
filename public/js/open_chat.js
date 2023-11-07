@@ -18,10 +18,11 @@ window.addEventListener('message', (e) => {
 		//console.log(e.data);
 		if (e.data.type == 'user') {
 			let username = document.querySelector("#username").value;
+			let role = document.querySelector("#role").value;
 			let obj = {
 				type: 'info',
 				username: username,
-				role: 'specialist'
+				role: role
 			}
 			chat_window.postMessage(obj, '*');
 		}
