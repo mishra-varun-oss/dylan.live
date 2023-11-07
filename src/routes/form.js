@@ -7,6 +7,7 @@ const router = express.Router();
 
 const db = require(path.join(__dirname, "../utils/db.js"));
 const utils = require(path.join(__dirname, "../utils/utils.js"));
+const login_utils = require(path.join(__dirname, "../utils/login_util.js"));
 
 const storage = multer.diskStorage({ 
 	destination: '/var/www/dylan.live/public/uploads',
@@ -17,11 +18,16 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+router.use(login_utils.employee_check);
+
 router.get('/', (req, res) => {
-	let q = `SELECT * FROM tickets WHERE employee = '${req.session.username}'`; 
+	let q = `SELECT *, DATE_FORMAT(dt, '%m-%d-%Y %H:%i:%s') AS nice_dt FROM tickets WHERE employee = '${req.session.username}'`;
 	db.query(q, (err, results) => {
 		if (err) throw err;
-		res.send(results);
+		res.render('employee', { 
+			username: req.session.username,
+			result: results
+		});
 	})
 //	res.sendFile("/var/www/dylan.live/templates/views/form.html");
 })

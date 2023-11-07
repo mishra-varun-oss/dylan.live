@@ -5,10 +5,10 @@ module.exports.employee_check = (req, res, next) => {
 		} else if (req.session.role == 'specialist') {
 			res.redirect('/specialist');
 		} else {
-			res.redirect('/login');
+			res.redirect('/?logout=true');
 		}
 	} else {
-		res.redirect('/login');
+		res.redirect('/?logout=true');
 	}
 }
 module.exports.specialist_check = (req, res, next) => {
@@ -18,9 +18,9 @@ module.exports.specialist_check = (req, res, next) => {
 		} else if (req.session.role == 'specialist') {
 			next();
 		} else {
-			res.redirect('/login');
+			res.redirect('/?logout=true');
 		}
 	} else {
-		res.redirect('/login');
+		res.redirect('/?logout=true');
 	}
 }
