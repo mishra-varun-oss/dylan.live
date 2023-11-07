@@ -65,4 +65,8 @@ router.get('/ticket/:id', (req, res) => {
 	})
 })
 
+router.get('/ticket', (req, res) => {
+	res.sendFile("/var/www/dylan.live/templates/views/form.html");
+})
+
 module.exports = router;

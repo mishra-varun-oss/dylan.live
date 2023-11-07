@@ -2,13 +2,23 @@
 
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Employee</title>
+		<link rel="stylesheet" href="/css/dashboard.css">
 	</head>
 	<body>
+		<nav class="navbar">
+			<a href="/" class="navbar-logo">Dylan.Live</a>
+			<div class="navbar-links">
+				<a href="/employee/ticket" class="navbar-link">Create Ticket</a>
+				<a href="/employee/logout" class="navbar-logout">Logout</a>
+			</div>
+		</nav>
 		<p>Logged in as {{ role }}: {{ username }}</p>
 		<input type="hidden" id="role" value="{{{role}}}">
 		<input type="hidden" value="{{{username}}}" id="username">
 		<a href="/employee/logout">Logout</a>
+		<a href="/employee/ticket">Create ticket</a>
 		<table class="table">
 		<thead>
 			<tr>

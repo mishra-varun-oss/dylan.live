@@ -147,12 +147,12 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(255, 255, 255, 0.3);
 	transition: background-color 0.3s ease;
 	z-index: 99999;
 }
 #form .drop-area p {
-	color: #fff;
+	color: #000;
 	font-size: 24px;
 }
 #form .fade-transition {
