@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="theme-color" content="#18d618" media="(prefers-color-scheme: light)">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Ticket Form</title>
+		<link rel="stylesheet" href="/css/dashboard.css">
+		<link rel="stylesheet" href="/css/form.css">
+	</head>
+
+	<body>
+		<div id="form">
+			<navbar></navbar>
+			<div class="container">
+				<div v-show="isDragging" id="drop_area" class="drop-area">
+					<p>Drag and drop files here</p>
+				</div>
+				<p class="title">Create Ticket</p>
+				<p v-show="complete_form_message" class="message">Submission recieved! Thank you for your time!</p>
+
+				<br>
+				<label for="category">Category:</label>
+				<select id="category" name="category">
+					<option value="software">Software</option>
+					<option value="hardware">Hardware</option>
+					<option value="network">Network</option>
+					<option value="security">Security</option>
+				</select>
+
+				<br><br>
+
+				<label for="priority">Priority:</label>
+				<select id="priority" name="priority">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+					<option value="critical">Critical</option>
+				</select>
+
+				<br><br>
+
+				<label for="description">Description:</label>
+				<textarea id="description" name="description" rows="4" cols="50"></textarea>
+
+				<br><br>
+				<label for="screenshot" class="file-input-label">Click to attach files. Attached {{files_length}} files:</label>
+				<input type="file" id="screenshot" name="files" multiple @change="handleFileChange">
+				<div v-show="files.length > 0" class="files-container">
+					<div v-for="(file, index) in files" :key="file.name" class="file-preview">
+						<template v-if="file.type.includes('image')">
+							<img :src="file.url" alt="File Preview" @click="openModal(file.url)">
+						</template>
+
+						<div class="file-details">
+							<div class="file-name">{{ file.name }}</div>
+						</div>
+						<button class="delete-button" @click="deleteFile(index)">Delete</button>
+					</div>
+				</div>
+
+				<br>
+				<div v-if="modalOpen" class="modal" @click="closeModal">
+					<div class="modal-content">
+						<img :src="modalImageUrl" alt="Full Image">
+					</div>
+				</div>
+				
+				<div v-if="progressVisible" class="progress-modal">
+					<div class="progress-bar">
+						<div class="progress-bar-inner" :style="{ width: progress + '%' }"></div>
+					</div>
+				</div>
+				
+				<button class="submit-button" @click="handleSubmit">Submit</button>
+			</div>
+		</div>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="/components/employee_navbar.js"></script>
+		<script type="module" src="/js/form.js"></script>
+	</body>
+</html>

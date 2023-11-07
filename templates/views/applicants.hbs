@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>applicants</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+
+	<body>
+		<div class="container">
+			<table>
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>first name</th>
+						<th>last name</th>
+						<th>date</th>
+						<th>phone number</th>
+						<th>email</th>
+						<th>resume</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{{#each applicant}}
+					<tr>
+						<td>{{this.id}}</td>
+						<td>{{this.first_name}}</td>
+						<td>{{this.last_name}}</td>
+						<td>{{this.date}}</td>
+						<td>{{this.phone_number}}</td>
+						<td>{{this.email}}</td>
+						<td>
+							<a target="_blank" href="{{{this.resume}}}">resume</a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

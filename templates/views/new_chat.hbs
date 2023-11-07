@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Chat Interface</title>
+  <link rel="stylesheet" href="/css/new_chat.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Chat Interface</h2>
+      <button class="close-btn" onclick="closeChat()">Close</button>
+    </div>
+    <div id="chat_container" class="chat-messages">
+      <!-- More messages can be added dynamically -->
+    </div>
+    <div class="chat-input">
+      <input id="text" type="text" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="/js/new_chat.js"></script>
+</body>
+</html>

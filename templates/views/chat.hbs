@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>chat</title>
+
+		<link rel="stylesheet" href="/css/chat.css">
+	</head>
+
+	<body>
+		<input type="hidden" value="{{{username}}}" id="username">
+		
+		<div class="grid-container">
+			<ul class="nav">
+				<li class="nav_item">{{username}}'s messages</li>
+				<li class="logout">
+					<form action="/chat/logout" method="post">
+						<button type="submit" class="logout_button">logout</button>
+					</form>
+				</li>
+			</ul>
+
+			<div class="grid-child contacts">
+				<p>Contacts</p>
+				<ul class="contact-list" id="contact_list"></ul>
+			</div>
+			<div class="grid-child messages">
+				<input type="hidden" value="" id="message_target">
+				<input type="hidden" value="" id="chat_id">
+				<p id="message_status">Choose contact</p>
+				<div id="messages_container">
+					<ul id="m-list" class="message-list"></ul>
+				</div>
+				<div class="input-field">
+					<input type="text" id="message_content" placeholder="Type message">
+					<button id="send">send</button>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script src="/js/chat.js"></script>
+</html>

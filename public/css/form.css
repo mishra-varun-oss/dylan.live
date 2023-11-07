@@ -1,0 +1,237 @@
+@font-face {
+	font-family: 'Kanit-Regular';
+	src: url('/fonts/Kanit-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Kanit-Regular';
+	src: url('/fonts/PT_Sans/Kanit-Regular.ttf') format('truetype');
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+body {
+	font-family: 'Kanit-Regular', sans-serif;
+	height: 100vh;
+	margin: 0;
+	color: white;
+	overflow: hidden;
+	background-color: #18d618;
+}
+@media only screen and (max-width: 750px) {
+	html,body {
+		overflow: hidden;
+	}
+	body {
+	}
+	#form .files-container {
+		overflow-y: auto;
+		max-height: 150px;
+	}
+	#form .progress-bar { 
+		width: 200px;
+	}
+}
+#form {
+	width: 100%;
+	height: 100%;
+}
+.container {
+	margin: 0px 10px 0px 10px;
+}
+.title .back-button {
+	color: white;
+	text-decoration: none;
+	font-size: 15px;
+	margin-left: 5px;
+}
+#form .title {
+	padding-top: 5px;
+	font-size: 25px;
+	margin: 0;
+}
+#form .label {
+
+}
+#form .field {
+	font-family: 'Kanit-Regular';
+	font-size: 15px;
+	color: white;
+	background: transparent;
+	border: none;
+}
+#form .field:focus {
+	outline: 0;
+	border: 0 0 2px;
+	border-color: white;
+}
+#form select, textarea {
+	font-family: 'Kanit-Regular';
+	color: white;
+	background-color: transparent;
+	padding: 4px;
+	border: 1px solid white;
+	border-radius: 4px;
+	font-size: 16px;
+	width: 200px;
+}
+#form #description {
+	width: 300px;
+	resize: none;
+}
+#form label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: bold;
+}
+#form input[type="file"] {
+	display: none;
+}
+#form .file-input-label {
+	display: inline-block;
+	padding: 4px;
+	background-color: transparent;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+#form .files-container {
+	max-width: 300px;
+	border: 1px solid white;
+	padding: 4px;
+	border-radius: 4px;
+	max-height: 154px;
+	overflow-y: auto;
+}
+#form .file-preview {
+	display: flex;
+	max-width: 300px;
+	font-family: 'Kanit-Regular';
+	align-items: center;
+	background-color: white;
+	border-radius: 4px;
+	margin-bottom: 4px;
+	padding: 4px;
+	color: black;
+}
+#form .file-preview img {
+	width: 50px;
+	height: auto;
+	margin-right: 10px;
+}
+#form .file-details {
+	flex-grow: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+#form .file-name {
+	margin-right: 10px;
+}
+#form .delete-button {
+	font-size: 16px;
+	font-family: 'Kanit-Regular';
+	background-color: transparent;
+	color: black;
+	border: 1px solid white;
+	padding: 4px 8px;
+	cursor: pointer;
+	margin-left: 5px;
+}
+#form .drop-area {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease;
+	z-index: 99999;
+}
+#form .drop-area p {
+	color: #fff;
+	font-size: 24px;
+}
+#form .fade-transition {
+	transition: opacity 0.3s ease;
+} 
+#form .cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-color: transparent;
+}
+#form .modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 9999;
+}
+#form .modal-content {
+	max-width: 80%;
+	max-height: 80%;
+	overflow: auto;
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 4px;
+	text-align: center;
+}
+#form .modal img {
+	max-width: 100%;
+	max-height: 100%;
+}
+.submit-button {
+	font-family: "Kanit-Regular";
+	border: 1px solid white;
+	background-color: #fff;
+	color: #18d618;
+	border-radius: 4px;
+	padding: 5px 10px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.progress-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	z-index: 9999;
+}
+
+.progress-bar {
+	width: 300px;
+	height: 20px;
+	background-color: white;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.progress-bar-inner {
+	height: 100%;
+	background-color: #18d618;
+	width: 0%;
+	transition: width 0.3s;
+}
+.message {
+	color: white;
+	font-size: 16px;
+	margin: 0;
+}

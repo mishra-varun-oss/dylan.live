@@ -1,0 +1,41 @@
+@font-face {
+	font-family: 'Kanit-Regular';
+	src: url('/fonts/Kanit-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'PTSans-Regular';
+	src: url('/fonts/PT_Sans/PTSans-Regular.ttf') format('truetype');
+}
+
+@media only screen and (max-width: 786px) {
+	html,body {
+		height: 100% !important;
+	}
+}
+body {
+	overflow: hidden;
+	background-color: #18d618;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	color: white;
+	font-family: 'Kanit-Regular';
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+div {
+	text-align: center;
+}
+.login-button {
+	font-family: 'Kanit-Regular';
+	background-color: #fff;
+	color: #18d618;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 20px;
+	font-size: 20px;
+	cursor: pointer;
+	font-weight: bold;
+}

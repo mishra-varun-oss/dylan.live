@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>apply</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+
+	<body>
+		<div class="container">
+			<form action="/apply" method="POST" enctype="multipart/form-data">
+				<input type="text" placeholder="First name" name="first_name">
+				<input type="text" placeholder="Last name" name="last_name">
+				<input type="text" placeholder="Phone number" name="phone_number">
+				<input type="email" placeholder="Email" name="email">
+
+				<input type="file" name="file" accept=".pdf,.docx">
+
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="theme-color" content="#18d618" media="(prefers-color-scheme: light)">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Dylan.L!ve</title>
+		<link rel="stylesheet" href="/css/dashboard.css">
+		<link rel="stylesheet" href="/css/employee_ticket_table.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<navbar></navbar>
+			<input type="hidden" :value="username" id="username">
+
+			<div class="content">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Timer</th>
+							<th>Status</th>
+							<th>Category</th>
+							<th>Priority</th>
+							<th></th> <!-- Empty column for the view button -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="item in tableData" :key="item.id">
+							<td>{{ item.dt }}</td>
+							<td>{{ item.status }}</td>
+							<td>{{ item.category }}</td>
+							<td>{{ item.priority }}</td>
+							<td>
+								<button @click="viewEntry(item.id)">View</button>
+								<button @click="open_chat(item.id)">Chat</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="/components/employee_navbar.js"></script>
+		<script type="module" src="/js/employee_dashboard.js"></script>
+	</body>
+</html>

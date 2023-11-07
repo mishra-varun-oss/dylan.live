@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="theme-color" content="#18d618" media="(prefers-color-scheme: light)">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Dylan.L!ve</title>
+		<link rel="stylesheet" href="/css/dashboard.css">
+		<link rel="stylesheet" href="/css/employee_status.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<navbar></navbar>
+			  <div class="button-container">
+			    <button class="emoji-button" @click="selectEmoji('sad')">😢</button>
+			    <button class="emoji-button" @click="selectEmoji('straight')">😐</button>
+			    <button class="emoji-button" @click="selectEmoji('happy')">😊</button>
+			  </div>
+			  <div class="button-container">
+			    <button class="emoji-button" @click="selectEmoji('emoji1')">🌟</button>
+			    <button class="emoji-button" @click="selectEmoji('emoji2')">🌺</button>
+			    <button class="emoji-button" @click="selectEmoji('emoji4')">🎉</button>
+			    <button class="emoji-button" @click="selectEmoji('emoji5')">👍</button>
+			  </div>
+
+			  <div class="button-container">
+			    <button class="emoji-button" @click="selectEmoji('emoji6')">🌞</button>
+			    <button class="emoji-button" @click="selectEmoji('emoji7')">🐶</button>
+			    <button class="emoji-button" @click="selectEmoji('emoji8')">🎈</button>
+			  </div>
+		</div>
+		
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="/components/employee_navbar.js"></script>
+		<script type="module" src="/js/employee_status.js"></script>
+	</body>
+</html>
