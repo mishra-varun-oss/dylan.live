@@ -91,7 +91,7 @@ ws.addEventListener('open', (event) => {
 			//RENDER MESSAGES
 			if (data.messages.length > 0) {
 				data.messages.forEach((m) => {
-					appendMessage(m.sender, m.date, m.content);
+					appendMessage(m.sender, m.nice_date, m.content);
 				})	
 			}
 			let obj = {
@@ -99,13 +99,14 @@ ws.addEventListener('open', (event) => {
 				type: 'user'
 			}	
 			window.opener.postMessage(obj, '*'); 
+			chat_container.scrollTop = chat_container.scrollHeight;
 		}
 	})
 })
 
 ws.addEventListener('message', (event) => {
 	let m = JSON.parse(event.data);
-	console.log(m, event);
+	//console.log(m, event);
 	if (m.type == 'message') {
 		appendMessage(m.sender, m.date, m.content);
 	} else if (m.type == 'login') {
@@ -130,6 +131,7 @@ ws.addEventListener('message', (event) => {
 		div.classList.add('message');
 		chat_container.appendChild(div);
 	}
+	chat_container.scrollTop = chat_container.scrollHeight;
 })
 
 ws.addEventListener('close', (event) => {
@@ -161,5 +163,5 @@ window.addEventListener('message', (e) => {
 })
 
 window.onload = () => {
-	chat_container.scrollTo(0, chat_container.scrollHeight);
+//	chat_container.scrollTo(0, chat_container.scrollHeight);
 }

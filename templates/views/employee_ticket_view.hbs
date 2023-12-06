@@ -3,37 +3,51 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="theme-color" content="#18d618" media="(prefers-color-scheme: light)">
 		<title>Ticket</title>
 		<link rel="stylesheet" href="/css/specialist_ticket_view.css">
+		<link rel="stylesheet" href="/css/dashboard.css">
 	</head>
 
 	<body>
-		<p>Logged in as {{role}}: {{ username }}</p>
-		<a href="/employee/logout">Logout</a>
-		<a href="/employee">Back</a>
-		
-		<p>IT Ticket Details</p>
-		<input type="hidden" value="{{{r.status}}}" id="status_data">
-		<input type="hidden" value="{{{r.id}}}" id="id">
-		<p id="message"></p >
-		<ul>
-			<li><strong>Status:</strong>
-				<select id="status" disabled>
-					<option value="OPEN">OPEN</option>
-					<option value="PENDING">PENDING</option>
-					<option value="IN PROGRESS">IN PROGRESS</option>
-					<option value="CLOSED">CLOSED</option>
-				</select>
-			</li>
-			<li><strong>Submission Date:</strong> {{r.nice_dt}}</li>
-			<li><strong>Priority:</strong> {{r.priority}}</li>
-			<li><strong>Category:</strong> {{r.category}}</li>
-			<li><strong>Employee:</strong> {{r.employee}}</li>
-			<li><strong>Description:</strong> {{r.description}}</li>
-		</ul>
-		<p>Files Gallery</p>
-		<input type="hidden" id="files" value="{{{r.files}}}">
-		<div class="file-list" id="fileList"></div>
+		<nav class="navbar">
+			<a href="/" class="navbar-logo">Dylan.Live</a>
+			<div class="navbar-links">
+				<a href="/employee/" class="navbar-link">Back</a>
+				<a href="/employee/logout" class="navbar-logout">Logout</a>
+			</div>
+		</nav>
+
+		<div class="ticket-details-container">
+			<p>IT Ticket Details</p>
+			<input type="hidden" value="{{{r.status}}}" id="status_data">
+			<input type="hidden" value="{{{r.id}}}" id="id">
+			<p id="message"></p >
+			<input type="hidden" id="role" value="{{{role}}}">
+			<input type="hidden" value="{{{username}}}" id="username">
+			<a href="#" onclick="open_chat({{{r.id}}})">Chat</a>	
+			<ul>
+				<li><strong>Status:</strong>
+					<span id="status"></span>
+					<!--
+					<select id="status" disabled>
+						<option value="OPEN">OPEN</option>
+						<option value="PENDING">PENDING</option>
+						<option value="IN PROGRESS">IN PROGRESS</option>
+						<option value="CLOSED">CLOSED</option>
+					</select>
+					-->
+				</li>
+				<li><strong>Submission Date:</strong> {{r.nice_dt}}</li>
+				<li><strong>Priority:</strong> {{r.priority}}</li>
+				<li><strong>Category:</strong> {{r.category}}</li>
+				<li><strong>Employee:</strong> {{r.employee}}</li>
+				<li><strong>Description:</strong> {{r.description}}</li>
+			</ul>
+			<p>Files Gallery</p>
+			<input type="hidden" id="files" value="{{{r.files}}}">
+			<div class="file-list" id="fileList"></div>
+		</div>
 
 		<div class="modal" id="modal">
 			<div class="modal-content">
@@ -43,6 +57,7 @@
 		</div>
 
 		<script src="/js/specialist_ticket_view.js"></script>	
+		<script src="/js/open_chat.js"></script>
 	</body>
 </html>
 

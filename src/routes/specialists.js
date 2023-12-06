@@ -33,6 +33,7 @@ router.get('/view/:id', (req, res) => {
 		let r = results[0];
 		res.render('specialist_ticket_view', {
 			username: req.session.username,
+			role: req.session.role,
 			r: r
 		})
 	})

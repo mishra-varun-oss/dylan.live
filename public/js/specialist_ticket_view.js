@@ -47,12 +47,17 @@ function isModalOrContent(element) {
 	return element === modal || modal.contains(element);
 }
 function set_status(value, element) {
-	for (let i = 0; i < element.options.length; i++) {
-		let option = element.options[i];
-		if (option.value == value) {
-			element.selectedIndex = i;
-			break;
+	console.log(element.nodeName);
+	if (element.nodeName == 'SELECT') {
+		for (let i = 0; i < element.options.length; i++) {
+			let option = element.options[i];
+			if (option.value == value) {
+				element.selectedIndex = i;
+				break;
+			}
 		}
+	} else {
+		element.textContent = value;
 	}
 }
 

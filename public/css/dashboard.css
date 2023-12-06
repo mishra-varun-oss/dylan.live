@@ -6,6 +6,11 @@
 	font-family: 'PTSans-Regular';
 	src: url('/fonts/PT_Sans/PTSans-Regular.ttf') format('truetype');
 }
+@media only screen and (max-width: 400px) {
+	.container table {
+		width: 85% !important;
+	}
+}
 
 * {
 	box-sizing: border-box;
@@ -60,4 +65,27 @@ body {
 .content {
 	background-color: #fff;
 	padding: 20px;
+}
+.container {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+.container table {
+	margin-top: 15px;
+	width: 75%;
+}
+.container tbody td {
+	text-align:center;
+	padding: 0px 5px;
+}
+.container tbody td a {
+	text-decoration: none;
+	color: black;
+}
+.container tbody td a:hover {
+	text-decoration: underline;
+}
+.ticket-details-container {
+	padding-left: 10px;
 }

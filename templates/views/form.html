@@ -13,14 +13,13 @@
 	<body>
 		<div id="form">
 			<navbar></navbar>
-			<div class="container">
+			<div class="form-container">
 				<div v-show="isDragging" id="drop_area" class="drop-area">
 					<p>Drag and drop files here</p>
 				</div>
 				<p class="title">Create Ticket</p>
 				<p v-show="complete_form_message" class="message">Submission recieved! Thank you for your time!</p>
 
-				<br>
 				<label for="category">Category:</label>
 				<select id="category" name="category">
 					<option value="software">Software</option>

@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#18d618" media="(prefers-color-scheme: light)">
 		<title>Employee</title>
 		<link rel="stylesheet" href="/css/dashboard.css">
 	</head>
@@ -14,38 +15,29 @@
 				<a href="/employee/logout" class="navbar-logout">Logout</a>
 			</div>
 		</nav>
-		<p>Logged in as {{ role }}: {{ username }}</p>
 		<input type="hidden" id="role" value="{{{role}}}">
 		<input type="hidden" value="{{{username}}}" id="username">
-		<a href="/employee/logout">Logout</a>
-		<a href="/employee/ticket">Create ticket</a>
-		<table class="table">
-		<thead>
-			<tr>
-				<th>Date</th>
-				<th>Status</th>
-				<th>Category</th>
-				<th>Priority</th>
-				<th></th> 
-			</tr>
-		</thead>
-		<tbody>
-			{{#each result}}
-			<tr>
-				<td>{{ this.nice_dt }}</td>
-				<td>{{ this.status }}</td>
-				<td>{{ this.category }}</td>
-				<td>{{ this.priority }}</td>
-				<td>
-					<a href="/employee/ticket/{{{this.id}}}">Details</a>	
-				</td>
-				<td>
-					<a href="#" onclick="open_chat({{{this.id}}})">Chat</a>	
-				</td>
-			</tr>
-			{{/each}}
-		</tbody>
-		</table>
-		<script src="/js/open_chat.js"></script>
+		<div class="container">
+			<table class="table">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Status</th>
+					<th></th> 
+				</tr>
+			</thead>
+			<tbody>
+				{{#each result}}
+				<tr>
+					<td>{{ this.nice_dt }}</td>
+					<td>{{ this.status }}</td>
+					<td>
+						<a href="/employee/ticket/{{{this.id}}}">Details</a>	
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
+			</table>
+		</div>
 	</body>
 </html>

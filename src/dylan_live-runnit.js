@@ -8,7 +8,6 @@ const session = require('express-session');
 const body_parser = require('body-parser');
 
 const app = express()
-const port = 3020
 
 const public_dir_path = path.join(__dirname,"../public");
 const views_dir_path = path.join(__dirname,"../templates/views");
@@ -22,6 +21,10 @@ const db = require(path.join(__dirname, "/utils/db.js"));
 const employee = require(path.join(__dirname, "/routes/employee.js"));
 const specialists = require(path.join(__dirname, "/routes/specialists.js"));
 const new_chat = require(path.join(__dirname, "/routes/new_chat.js"));
+
+const configs = require(path.join(__dirname, "./utils/configs.js"));
+
+require('dotenv').config(configs.src_path);
 
 const wss = new ws.Server({ noServer: true });
 wss.on('connection', socket => {
@@ -144,7 +147,7 @@ app.use('/tickets',express.static(path.join(__dirname,'../public/tickets')));
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: false }));
 app.use(session({ 
-	secret: 'heard_ur_boyfriend_lame!!',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true
 }))
@@ -162,6 +165,7 @@ app.use('/employee', form);
 //app.use('/apply', apply);
 //app.use('/applicants', applicants);
 
+const port = process.env.PORT;
 const server = app.listen(port, (err) => {
 	if (err) console.log(err);
 	console.log(`dylan.live is running on port ${port}`);

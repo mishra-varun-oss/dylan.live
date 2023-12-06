@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/get_messages', (req, res) => {
 	let id = req.body.id;
-	let q = `SELECT * FROM messages WHERE chat_id = ${id}`; 
+	let q = `SELECT *, DATE_FORMAT(date, '%m-%d-%Y %H:%m:%s') AS nice_date FROM messages WHERE chat_id = ${id}`;
 	db.query(q, (err, results) => {
 		if (err) throw err;
 		res.send({ success: true, messages: results })

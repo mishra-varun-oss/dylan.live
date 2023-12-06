@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
 //	res.sendFile("/var/www/dylan.live/templates/views/form.html");
 })
 
-router.post('/', upload.array('file_data', 10), (req, res) => {
+router.post('/ticket', upload.array('file_data', 10), (req, res) => {
 	//handle data req.body and req.files
 	utils.organize_files(req.files)
 	.then((file_list) => {
